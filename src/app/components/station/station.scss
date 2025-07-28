@@ -1,0 +1,116 @@
+.mycard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    gap: 2rem;
+}
+
+:host {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  margin: 1rem;
+}
+
+
+.firstline {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.mybutton {
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.myimg {
+    width: 25px;
+    height: 25px;
+}
+
+.myselect {
+  width: 80%;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+
+.secondline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.add {
+    width: 60%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #2DD838;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 2rem;
+
+    &:hover {
+        background-color: #24a92d;
+        cursor: pointer;
+    }
+}
+
+.view {
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: red;
+    border: 2px solid black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darkred;
+    }
+}

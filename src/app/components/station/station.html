@@ -1,15 +1,29 @@
 <div class="mycard">
-    <div>
-        <button>
-            <img>
+    <div class="firstline">
+        <button class="mybutton">
+            <img class="myimg" src="/pencil.png" alt="editar">
         </button>
-        <h2 class="title"></h2>
-        <button>
-            <img>  
+        <h2 class="title">{{name}}</h2>
+        <button class="mybutton">
+            <img class="myimg" src="/delete.png" alt="excluir">
         </button>
     </div>
-    <div>
-        <button></button>
-        <button></button>
+
+    <div class="secondline">
+        <select class="myselect">
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="op1">Opção 1</option>
+            <option value="op2">Opção 2</option>
+            <option value="op3">Opção 3</option>
+        </select>
+
+
+        <button class="add">
+            <p class="subtitle">+ ADD</p>
+        </button>
+
+        <button class="view">
+            VER
+        </button>
     </div>
 </div>

@@ -1,5 +1,10 @@
+<app-header [name]="'BOSCH'"></app-header>
 <main class="mymain">
-    <app-header [name]="'BOSCH'"></app-header>
-    <app-station></app-station>
-    <p>home works!</p>
+    
+    <div class="stations">
+        <app-station [name]="'Estação 1'"></app-station>
+        <app-station [name]="'Estação 2'"></app-station>
+        <app-station [name]="'Estação 3'"></app-station>
+    </div>
+    <button class="newstation">+ ESTAÇÃO</button>
 </main>
