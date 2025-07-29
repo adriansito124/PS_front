@@ -1,11 +1,31 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-station',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './station.html',
-  styleUrl: './station.scss'
+  styleUrls: ['./station.scss']
 })
 export class Station {
-  @Input() name: string = "teste"
+  constructor(private router: Router) {}
+
+  gotoStation() {
+    this.router.navigate(['/station']);
+  }
+
+  @Input() name_station: string = 'teste';
+  @Input() serialnumber: string = '1234';
+
+  showModal = false;
+
+  abrirModal() {
+    this.showModal = true;
+  }
+
+  fecharModal() {
+    this.showModal = false;
+  }
 }

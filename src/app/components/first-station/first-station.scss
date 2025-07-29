@@ -1,0 +1,101 @@
+
+.mycard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    gap: 2rem;
+    height: 300px;
+}
+
+:host {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  margin: 1rem;
+}
+
+
+.firstline {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.mybutton {
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.myimg {
+    width: 25px;
+    height: 25px;
+}
+
+
+.secondline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    gap: 1rem;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.add {
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(0, 135, 255);
+    border: 2px solid black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 4rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(0, 110, 207);
+    }
+}
+
+.view {
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: red;
+    border: 2px solid black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darkred;
+    }
+}

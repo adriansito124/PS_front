@@ -3,7 +3,7 @@
         <button class="mybutton">
             <img class="myimg" src="/pencil.png" alt="editar">
         </button>
-        <h2 class="title">{{name}}</h2>
+        <h2 class="title">{{name_station}}</h2>
         <button class="mybutton">
             <img class="myimg" src="/delete.png" alt="excluir">
         </button>
@@ -18,12 +18,23 @@
         </select>
 
 
-        <button class="add">
+        <button (click)="abrirModal()" class="add">
             <p class="subtitle">+ ADD</p>
         </button>
 
-        <button class="view">
+        <button (click)="gotoStation()" class="view">
             VER
         </button>
+    </div>
+
+</div>
+
+<div class="modal-overlay" *ngIf="showModal">
+    <div class="modal-content">
+        <h2>Deseja adicionar {{serialnumber}} em {{name_station}}?</h2>
+        <div class="modal_buttons">
+            <button class="closebutton" (click)="fecharModal()">Cancelar</button>
+            <button class="okbutton" (click)="fecharModal()">Adicionar</button>
+        </div>
     </div>
 </div>
