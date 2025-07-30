@@ -19,13 +19,32 @@ export class Station {
   @Input() name_station: string = 'teste';
   @Input() serialnumber: string = '1234';
 
-  showModal = false;
+  showModalAdd: boolean = false;
+  showModalEdit: boolean = false;
+  showModalDelete: boolean = false;
 
-  abrirModal() {
-    this.showModal = true;
+
+  abrirModalAdd() {
+    this.showModalAdd = true;
   }
 
-  fecharModal() {
-    this.showModal = false;
+  fecharModalAdd() {
+    this.showModalAdd = false;
+  }
+
+  abrirModalEditStation() {
+    this.showModalEdit = true;
+  }
+
+  fecharModalEditStation() {
+    this.showModalEdit = false;
+  }
+
+  abrirModalDelete() {
+    this.showModalDelete = true;
+  }
+
+  fecharModalDelete() {
+    this.showModalDelete = false;
   }
 }

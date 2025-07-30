@@ -1,11 +1,10 @@
-<app-header></app-header>
 <main class="mymain">
     <div class="firstline">
-        <button class="mybutton">
+        <button (click)="abrirModalEditStation()" class="mybutton">
             <img class="myimg" src="/pencil.png" alt="editar">
         </button>
         <h1 class="title">{{name_station}}</h1>
-        <button class="mybutton">
+        <button (click)="abrirModalDelete()" class="mybutton">
             <img class="myimg" src="/delete.png" alt="excluir">
         </button>
     </div>
@@ -23,7 +22,7 @@
                 <td>1</td>
                 <td>27/08/2025</td>
                 <td>
-                    <button class="mybutton">
+                    <button (click)="abrirModalDelete()" class="mybutton">
                         <img class="tdimg" src="/delete.png" alt="excluir">
                     </button>
                 </td>
@@ -32,7 +31,7 @@
                 <td>2</td>
                 <td>15/08/2025</td>
                 <td>
-                    <button class="mybutton">
+                    <button (click)="abrirModalDelete()" class="mybutton">
                         <img class="tdimg" src="/delete.png" alt="excluir">
                     </button>
                 </td>
@@ -40,3 +39,30 @@
         </tbody>
     </table>
 </main>
+
+<div class="modal-overlay" *ngIf="showModalEdit">
+  <div class="modal-content">
+    <div class="secondline">
+      <h2>Alterar nome da estação?</h2>
+      <input class="edit_input" type="text" [value]="name_station" />
+    </div>
+    <div class="modal_buttons">
+      <button class="closebutton" (click)="fecharModalEditStation()">
+        Cancelar
+      </button>
+      <button class="okbutton" (click)="fecharModalEditStation()">
+        Alterar
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showModalDelete">
+  <div class="modal-content">
+    <h2>Deseja deletar {{ name_station }}?</h2>
+    <div class="modal_buttons">
+      <button class="closebutton" (click)="fecharModalDelete()">Cancelar</button>
+      <button class="okbutton" (click)="fecharModalDelete()">Adicionar</button>
+    </div>
+  </div>
+</div>

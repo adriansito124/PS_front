@@ -3,7 +3,7 @@ import { Header } from '../../components/header/header';
 
 @Component({
   selector: 'app-records',
-  imports: [Header],
+  imports: [],
   templateUrl: './records.html',
   styleUrl: './records.scss'
 })

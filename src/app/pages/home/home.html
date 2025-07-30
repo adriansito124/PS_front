@@ -1,10 +1,26 @@
-<app-header></app-header>
 <main class="mymain">
-    
+
     <div class="stations">
         <app-first-station [name_station]="'Estação 1'"></app-first-station>
         <app-station [name_station]="'Estação 2'"></app-station>
         <app-station [name_station]="'Estação 3'"></app-station>
     </div>
-    <button class="newstation">+ ESTAÇÃO</button>
+    <button (click)="abrirModalNewStation()" class="newstation">+ ESTAÇÃO</button>
 </main>
+
+<div class="modal-overlay" *ngIf="showModalNewStation">
+  <div class="modal-content">
+    <div class="secondline">
+      <h2>Adicionar nova estação?</h2>
+      <input class="edit_input" type="text" placeholder="Digite o nome da estação" />
+    </div>
+    <div class="modal_buttons">
+      <button class="closebutton" (click)="fecharModalNewStation()">
+        Cancelar
+      </button>
+      <button class="okbutton" (click)="fecharModalNewStation()">
+        Adicionar
+      </button>
+    </div>
+  </div>
+</div>

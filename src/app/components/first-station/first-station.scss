@@ -99,3 +99,69 @@
         background-color: darkred;
     }
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+}
+
+.modal_buttons {
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.closebutton {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    background-color: #FA5252;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #c13f3f;
+    }
+}
+
+.okbutton {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    background-color: #339AF0;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #2980c8;
+    }
+}
+
+.edit_input{
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+}
