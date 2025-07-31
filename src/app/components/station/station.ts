@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { IRegister } from '../../services/station.service';
 
 @Component({
   selector: 'app-station',
@@ -18,6 +19,8 @@ export class Station {
 
   @Input() name_station: string = 'teste';
   @Input() serialnumber: string = '1234';
+  @Input() registers: IRegister[] = [];
+
 
   showModalAdd: boolean = false;
   showModalEdit: boolean = false;
