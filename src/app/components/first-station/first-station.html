@@ -52,15 +52,12 @@
   <div class="modal-content">
     <div class="secondline">
       <h2>Adicionar nova peça?</h2>
-      <input class="edit_input" type="text" placeholder="Digite o codigo da peça" />
+      <input class="edit_input" type="text" placeholder="Digite o código da peça"
+             [(ngModel)]="newSerial" />
     </div>
     <div class="modal_buttons">
-      <button class="closebutton" (click)="fecharModalNewPart()">
-        Cancelar
-      </button>
-      <button class="okbutton" (click)="fecharModalNewPart()">
-        Adicionar
-      </button>
+      <button class="closebutton" (click)="fecharModalNewPart()">Cancelar</button>
+      <button class="okbutton" (click)="adicionarNovaPeca()">Adicionar</button>
     </div>
   </div>
 </div>

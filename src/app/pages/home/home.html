@@ -2,7 +2,7 @@
 
   <div class="stations">
     <app-first-station *ngIf="stations.length > 0" [name_station]="stations[0].name" [serialnumber]="serialnumber"
-      [registers]="stations[0].registers"></app-first-station>
+      [registers]="stations[0].registers"  [stationId]="stations[0].id"></app-first-station>
 
     <app-station *ngFor="let station of stations.slice(1)" [name_station]="station.name" [serialnumber]="serialnumber"
       [registers]="station.registers"></app-station>
