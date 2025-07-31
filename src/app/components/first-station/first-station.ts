@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { IRegister } from '../../services/station.service';
 
 @Component({
   selector: 'app-first-station',
   imports: [CommonModule],
   templateUrl: './first-station.html',
-  styleUrl: './first-station.scss'
+  styleUrls: ['./first-station.scss']
 })
 export class FirstStation {
   constructor(private router: Router) {}
@@ -16,6 +17,9 @@ export class FirstStation {
   showModalNewPart: boolean = false;
 
   @Input() name_station: string = "teste"
+  @Input() serialnumber: string = '';
+  @Input() registers: IRegister[] = [];
+
 
   gotoStation() {
     this.router.navigate(['/station']);
