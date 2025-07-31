@@ -1,63 +1,75 @@
-<div class="mycard">
+<div class="big">
+  <h1>{{ index }}</h1>
+  <div class="mycard">
     <div class="firstline">
-        <button (click)="abrirModalEditStation()" class="mybutton">
-            <img class="myimg" src="/pencil.png" alt="editar">
-        </button>
-        <h2 class="title">{{name_station}}</h2>
-        <button (click)="abrirModalDelete()" class="mybutton">
-            <img class="myimg" src="/delete.png" alt="excluir">
-        </button>
-    </div>
-
-    <div class="secondline">
-
-        <button (click)="abrirModalNewPart()" class="add">
-            <p class="subtitle">NEW PART</p>
-        </button>
-
-        <button (click)="gotoStation()" class="view">
-            VER
-        </button>
-    </div>
-</div>
-
-<div class="modal-overlay" *ngIf="showModalEdit">
-  <div class="modal-content">
-    <div class="secondline">
-      <h2>Alterar nome da estação?</h2>
-      <input class="edit_input" type="text" [value]="name_station" />
-    </div>
-    <div class="modal_buttons">
-      <button class="closebutton" (click)="fecharModalEditStation()">
-        Cancelar
+      <button (click)="abrirModalEditStation()" class="mybutton">
+        <img class="myimg" src="/pencil.png" alt="editar" />
       </button>
-      <button class="okbutton" (click)="fecharModalEditStation()">
-        Alterar
+      <h2 class="title">{{ name_station }}</h2>
+      <button (click)="abrirModalDelete()" class="mybutton">
+        <img class="myimg" src="/delete.png" alt="excluir" />
       </button>
     </div>
-  </div>
-</div>
 
-<div class="modal-overlay" *ngIf="showModalDelete">
-  <div class="modal-content">
-    <h2>Deseja deletar {{ name_station }}?</h2>
-    <div class="modal_buttons">
-      <button class="closebutton" (click)="fecharModalDelete()">Cancelar</button>
-      <button class="okbutton" (click)="fecharModalDelete()">Adicionar</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" *ngIf="showModalNewPart">
-  <div class="modal-content">
     <div class="secondline">
-      <h2>Adicionar nova peça?</h2>
-      <input class="edit_input" type="text" placeholder="Digite o código da peça"
-             [(ngModel)]="newSerial" />
+      <button (click)="abrirModalNewPart()" class="add">
+        <p class="subtitle">NEW PART</p>
+      </button>
+
+      <button (click)="gotoStation()" class="view">VER</button>
     </div>
-    <div class="modal_buttons">
-      <button class="closebutton" (click)="fecharModalNewPart()">Cancelar</button>
-      <button class="okbutton" (click)="adicionarNovaPeca()">Adicionar</button>
+  </div>
+
+  <div class="modal-overlay" *ngIf="showModalEdit">
+    <div class="modal-content">
+      <div class="secondline">
+        <h2>Alterar nome da estação?</h2>
+        <input class="edit_input" type="text" [value]="name_station" />
+      </div>
+      <div class="modal_buttons">
+        <button class="closebutton" (click)="fecharModalEditStation()">
+          Cancelar
+        </button>
+        <button class="okbutton" (click)="fecharModalEditStation()">
+          Alterar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="showModalDelete">
+    <div class="modal-content">
+      <h2>Deseja deletar {{ name_station }}?</h2>
+      <div class="modal_buttons">
+        <button class="closebutton" (click)="fecharModalDelete()">
+          Cancelar
+        </button>
+        <button class="okbutton" (click)="deletarEstacao()">
+          Deletar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" *ngIf="showModalNewPart">
+    <div class="modal-content">
+      <div class="secondline">
+        <h2>Adicionar nova peça?</h2>
+        <input
+          class="edit_input"
+          type="text"
+          placeholder="Digite o código da peça"
+          [(ngModel)]="newSerial"
+        />
+      </div>
+      <div class="modal_buttons">
+        <button class="closebutton" (click)="fecharModalNewPart()">
+          Cancelar
+        </button>
+        <button class="okbutton" (click)="adicionarNovaPeca()">
+          Adicionar
+        </button>
+      </div>
     </div>
   </div>
 </div>

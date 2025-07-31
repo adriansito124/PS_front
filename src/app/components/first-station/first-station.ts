@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { IRegister } from '../../services/station.service';
-import { PartService, ICreatePart } from '../../services/Part.service';
+import { IRegister, StationService } from '../../services/station.service';
+import { PartService, ICreatePart } from '../../services/part.service';
 import { FormsModule } from '@angular/forms';
 
 
@@ -14,7 +14,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./first-station.scss']
 })
 export class FirstStation {
-  constructor(private router: Router, private partService: PartService) {}
+  constructor(private router: Router, private partService: PartService,
+    private stationService: StationService
+  ) {}
 
   showModalEdit: boolean = false;
   showModalDelete: boolean = false;
@@ -24,6 +26,7 @@ export class FirstStation {
   @Input() serialnumber: string = '';
   @Input() registers: IRegister[] = [];
   @Input() stationId: string = '';
+  @Input() index!: number;
 
   newSerial: string = '';
 
@@ -55,6 +58,24 @@ export class FirstStation {
   fecharModalNewPart() {
     this.showModalNewPart = false;
   }
+
+  deletarEstacao() {
+    if (!this.stationId) {
+      console.warn('StationId ausente');
+      return;
+    }
+
+    this.stationService.deleteStation(this.stationId).subscribe({
+      next: () => {
+        console.log('Estação deletada com sucesso');
+        this.fecharModalDelete();
+      },
+      error: (err) => {
+        console.error('Erro ao deletar estação:', err);
+      },
+    });
+  }
+
 
   adicionarNovaPeca() {
     console.log('stationId:', this.stationId);

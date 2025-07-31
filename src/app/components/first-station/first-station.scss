@@ -166,3 +166,10 @@
   font-size: 1rem;
   border: 2px solid #ccc;
 }
+
+.big {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
