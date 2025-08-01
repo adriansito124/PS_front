@@ -13,14 +13,12 @@
     <thead>
       <tr>
         <th>Serial Number</th>
-        <th>Index</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let register of station.registers">
         <td>{{ register.serialNumber }}</td>
-        <td>{{ register.index }}</td>
         <td>
           <button (click)="deletarPart(register.id)" class="mybutton">
             <img class="tdimg" src="/delete.png" alt="excluir" />
