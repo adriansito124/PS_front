@@ -8,7 +8,9 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
   { path: 'records', component: Records },
-  { path: 'station', component: ViewStation },
+  { path: 'station/:id', 
+    loadComponent: () => import('./pages/view-station/view-station').then(m => m.ViewStation)
+   },
 ];
 
 @NgModule({

@@ -25,7 +25,7 @@ export interface ICreatePart {
 export class PartService {
   private url = `${environment.apiUrl}/parts`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get(this.url);
@@ -38,4 +38,9 @@ export class PartService {
   createPart(payload: ICreatePart) {
     return this.http.post(this.url, payload);
   }
+
+  deletePart(id: string) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
 }

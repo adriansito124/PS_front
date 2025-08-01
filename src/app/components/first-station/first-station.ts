@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IRegister, StationService } from '../../services/station.service';
 import { PartService, ICreatePart } from '../../services/part.service';
 import { FormsModule } from '@angular/forms';
+import { ICreateRegister, RegisterService } from '../../services/register.service';
 
 
 
@@ -14,9 +15,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./first-station.scss']
 })
 export class FirstStation {
-  constructor(private router: Router, private partService: PartService,
+  constructor(private router: Router, private partService: PartService, private registerService: RegisterService,
     private stationService: StationService
-  ) {}
+  ) { }
 
   showModalEdit: boolean = false;
   showModalDelete: boolean = false;
@@ -30,9 +31,9 @@ export class FirstStation {
 
   newSerial: string = '';
 
-
   gotoStation() {
-    this.router.navigate(['/station']);
+    this.router.navigate(['/station', this.stationId]);
+    console.log(this.index)
   }
 
   abrirModalEditStation() {
@@ -78,19 +79,21 @@ export class FirstStation {
 
 
   adicionarNovaPeca() {
-    console.log('stationId:', this.stationId);
-    const payload: ICreatePart = {
-      SerialNumber: this.newSerial,
-      StationId: this.stationId
-    };
 
-    this.partService.createPart(payload).subscribe({
+    console.log(this.serialnumber)
+    const payload: ICreateRegister = {
+      serialNumber: this.newSerial,
+    };
+    this.registerService.createRegister(this.stationId, payload).subscribe({
       next: () => {
+        this.newSerial = '';
         this.fecharModalNewPart();
+
+        window.location.reload();
       },
       error: (err) => {
         console.error('Erro ao criar peça:', err);
-      }
+      },
     });
   }
 

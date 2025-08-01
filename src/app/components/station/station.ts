@@ -7,8 +7,9 @@ import {
   IUpdateStation,
   StationService,
 } from '../../services/station.service';
-import { EResult, ICreatePart, PartService } from '../../services/part.service';
 import { FormsModule } from '@angular/forms';
+import { ICreateRegister, RegisterService } from '../../services/register.service';
+import { EResult, PartService } from '../../services/part.service';
 
 @Component({
   selector: 'app-station',
@@ -21,11 +22,13 @@ export class Station {
   constructor(
     private router: Router,
     private partService: PartService,
+    private registerService: RegisterService,
     private stationService: StationService
-  ) {}
+  ) { }
 
   gotoStation() {
-    this.router.navigate(['/station']);
+    this.router.navigate(['/station', this.stationId]);
+    console.log(this.index)
   }
 
   @Input() index: number = 0;
@@ -110,15 +113,16 @@ export class Station {
   adicionarNovaPeca() {
     if (!this.selectedSerial || !this.stationId) {
       console.warn('Serial ou stationId ausente');
+      console.log(this.stationId)
+      console.log(this.selectedSerial)
       return;
     }
 
-    const payload: ICreatePart = {
-      SerialNumber: this.selectedSerial,
-      StationId: this.stationId,
+    const payload: ICreateRegister = {
+      serialNumber: this.selectedSerial,
     };
 
-    this.partService.createPart(payload).subscribe({
+    this.registerService.createRegister(this.stationId, payload).subscribe({
       next: () => {
         console.log('Peça adicionada com sucesso');
         const isUltimaEstacao = this.index === this.totalStations - 1;
@@ -133,6 +137,8 @@ export class Station {
         }
         this.selectedSerial = '';
         this.fecharModalAdd();
+
+        window.location.reload();
       },
       error: (err) => {
         console.error('Erro ao criar peça:', err);

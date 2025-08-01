@@ -1,61 +1,50 @@
 <main class="mymain">
-    <div class="firstline">
-        <button (click)="abrirModalEditStation()" class="mybutton">
-            <img class="myimg" src="/pencil.png" alt="editar">
-        </button>
-        <h1 class="title">{{name_station}}</h1>
-        <button (click)="abrirModalDelete()" class="mybutton">
-            <img class="myimg" src="/delete.png" alt="excluir">
-        </button>
-    </div>
+  <div class="firstline">
+    <button (click)="abrirModalEditStation()" class="mybutton">
+      <img class="myimg" src="/pencil.png" alt="editar">
+    </button>
+    <h1 class="title">{{ name_station }}</h1>
+    <button (click)="abrirModalDelete()" class="mybutton">
+      <img class="myimg" src="/delete.png" alt="excluir">
+    </button>
+  </div>
 
-    <table class="station-table">
-        <thead>
-            <tr>
-                <th>Serial Number</th>
-                <th>Date</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>27/08/2025</td>
-                <td>
-                    <button (click)="abrirModalDelete()" class="mybutton">
-                        <img class="tdimg" src="/delete.png" alt="excluir">
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>15/08/2025</td>
-                <td>
-                    <button (click)="abrirModalDelete()" class="mybutton">
-                        <img class="tdimg" src="/delete.png" alt="excluir">
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="station-table" *ngIf="station">
+    <thead>
+      <tr>
+        <th>Serial Number</th>
+        <th>Index</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let register of station.registers">
+        <td>{{ register.serialNumber }}</td>
+        <td>{{ register.index }}</td>
+        <td>
+          <button (click)="deletarPart(register.id)" class="mybutton">
+            <img class="tdimg" src="/delete.png" alt="excluir" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 </main>
 
 <div class="modal-overlay" *ngIf="showModalEdit">
   <div class="modal-content">
     <div class="secondline">
       <h2>Alterar nome da estação?</h2>
-      <input class="edit_input" type="text" [value]="name_station" />
+      <input class="edit_input" type="text" [(ngModel)]="newName" />
     </div>
     <div class="modal_buttons">
-      <button class="closebutton" (click)="fecharModalEditStation()">
-        Cancelar
-      </button>
-      <button class="okbutton" (click)="fecharModalEditStation()">
-        Alterar
-      </button>
+      <button class="closebutton" (click)="fecharModalEditStation()">Cancelar</button>
+      <button class="okbutton" (click)="fecharModalEditStation()">Alterar</button>
     </div>
   </div>
 </div>
+
 
 <div class="modal-overlay" *ngIf="showModalDelete">
   <div class="modal-content">
